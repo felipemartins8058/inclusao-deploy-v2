@@ -34,7 +34,6 @@ export default function App({ children }: { children: React.ReactNode }) {
             <html lang="pt-br">
                 <body className={lexend.className}>
                     <HeaderMenu toggleTheme={toggleTheme} />
-                    <button onClick={() => toggleTheme()}>kkk</button>
                     {children}
                     <Footer />
                     <Vlibras/>
