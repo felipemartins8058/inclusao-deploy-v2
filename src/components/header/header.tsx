@@ -88,8 +88,8 @@ export function HeaderMenu({toggleTheme}: HeaderMenu) {
             <FaLinkedin size={22} color={Theme().color_icon_dark} aria-label="Ícone para rede social: linkedin"/>
           </DivInsideUpLeft>
           <DivInsideUpRight aria-label='opções de acessibilidade'>
-            <ButtonChangeFont onClick={handleDecreaseClick}><MdOutlineTextIncrease size={22} color={Theme().color_icon_dark} aria-label='Aumentar fonte do texto'/></ButtonChangeFont>
-            <ButtonChangeFont onClick={handleIncreaseClick}><MdOutlineTextDecrease size={22} color={Theme().color_icon_dark} aria-label='Diminuir fonte do texto'/></ButtonChangeFont>
+            <ButtonChangeFont onClick={handleIncreaseClick}><MdOutlineTextIncrease size={22} color={Theme().color_icon_dark} aria-label='Aumentar fonte do texto'/></ButtonChangeFont>
+            <ButtonChangeFont onClick={handleDecreaseClick}><MdOutlineTextDecrease size={22} color={Theme().color_icon_dark} aria-label='Diminuir fonte do texto'/></ButtonChangeFont>
             <ButtonContrast aria-label='Mudar para alto contraste' onClick={() => {toggleTheme()}}>
               <IoContrastOutline size={22} color={Theme().color_icon_dark} />
             </ButtonContrast>
