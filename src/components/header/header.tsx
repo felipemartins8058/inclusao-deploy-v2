@@ -25,11 +25,11 @@ import {
   ButtonLogin,
   NavBar,
   NavLink,
+  Link,
   ButtonContrast,
   BigSeparator,
 } from './headerStyles'
 import * as F from '../../styles/Fonts'
-import Link from 'next/link'
 import { LinkButton } from '../Button'
 import Theme from '@/utils/useThemeProvider'
 
@@ -73,8 +73,8 @@ export function HeaderMenu({ toggleTheme }: HeaderMenu) {
 
   let calculatedSize = fontSize * sizeIncrement;
 
-  if (calculatedSize < -4) {
-    calculatedSize = -4;
+  if (calculatedSize < -6) {
+    calculatedSize = -6;
   }
 
   if (calculatedSize > 32) {
@@ -108,9 +108,9 @@ export function HeaderMenu({ toggleTheme }: HeaderMenu) {
           <DivInsideDown>
             <DivInsideDownLeft>
               <NavBar aria-label='Menu de navegação'>
-                <Link href={'/'}>Inicio</Link>
-                <Link href={'/informativos'}>Informativo</Link>
-                <Link href={'/'}>Sobre a plataforma</Link>
+                <Link fontSize={18 + calculatedSize} href={'/'}>Inicio</Link>
+                <Link fontSize={18 + calculatedSize} href={'/informativos'}>Informativo</Link>
+                <Link fontSize={18 + calculatedSize} href={'/'}>Sobre a plataforma</Link>
               </NavBar>
             </DivInsideDownLeft>
             <DivInsideDownRight>

@@ -8,9 +8,23 @@ import Card from "@/components/Card";
 import Theme from "@/utils/useThemeProvider";
 import { fakeCardsInfo } from "@/services/api";
 import { ThemeContext } from "../App";
+import { useFontStore } from "@/components/header/header";
 
 export default function Informativos() {
     const selectedTheme = useContext(ThemeContext)
+
+    const { fontSize, sizeIncrement } = useFontStore();
+
+    let calculatedSize = fontSize * sizeIncrement;
+
+    if (calculatedSize < -4) {
+        calculatedSize = -4;
+    }
+
+    if (calculatedSize > 32) {
+        calculatedSize = 32;
+    }
+
     return (
         <S.MainInformativo aria-label="Página Conteúdo Informativo">
             <S.InfortativosSection>
@@ -18,7 +32,7 @@ export default function Informativos() {
                     title="Confira o nosso conteúdo informativo"
                     color={Theme().color_background_yellow}
                 />
-                <Text marginBottom="3.5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum.</Text>
+                <Text fontSize={16 + calculatedSize} marginBottom="3.5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum.</Text>
                 <S.InformativosGrid aria-label='grade de cartõed'>
                     {fakeCardsInfo.map((card) => (
                         <Card

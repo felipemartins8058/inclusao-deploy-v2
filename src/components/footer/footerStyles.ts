@@ -1,6 +1,10 @@
 'use client'
 import styled from 'styled-components'
 
+interface TextProps {
+  fontSize?: number;
+}
+
 export const DivFooterColor = styled.div`
   background-color: #212529;
   display: flex;
@@ -69,8 +73,9 @@ export const H6 = styled.h6`
   color: #ffffff;
 `
 
-export const Text = styled.p`
-  font-size: 1rem;
+export const Text = styled.p<TextProps>`
+  font-size: ${(props) => props.fontSize}px;
+  //font-size: 1rem;
   color: #ffffff;
 `
 

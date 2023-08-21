@@ -9,6 +9,7 @@ import Link from "next/link";
 import { ThemeContext } from "@/app/App";
 
 import Theme from "@/utils/useThemeProvider";
+import { useFontStore } from "../header/header";
 
 interface ButtonProps {
     link: string;
@@ -52,10 +53,22 @@ export function LinkButton({
     color = Theme().color_background_blue,
     outline = false,
 }: ButtonProps) {
+    const { fontSize, sizeIncrement } = useFontStore();
+
+    let calculatedSize = fontSize * sizeIncrement;
+
+    if (calculatedSize < -6) {
+        calculatedSize = -6;
+    }
+
+    if (calculatedSize > 32) {
+        calculatedSize = 32;
+    }
+
     return (
         <Link href={link}>
             <S.Button outline={outline}>
-                <BtnText color={color}>{label}</BtnText>
+                <BtnText fontSize={18 + calculatedSize} color={color}>{label}</BtnText>
                 {iconVariant(variant, color)}
             </S.Button>
         </Link>
@@ -70,11 +83,11 @@ export function EditButton({
     outline = false
 }: IconButtonProps) {
     return (
-        <S.EditButton outline={outline} onClick={() => {handleOnClick()}} aria-label="Botão de edição">
+        <S.EditButton outline={outline} onClick={() => { handleOnClick() }} aria-label="Botão de edição">
             {!!label ? (
                 <BtnText color={color}>{label}</BtnText>
             ) : (null)}
-            <MdModeEditOutline size={16} color={color}/>
+            <MdModeEditOutline size={16} color={color} />
         </S.EditButton>
     );
 }

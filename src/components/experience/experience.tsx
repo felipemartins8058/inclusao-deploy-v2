@@ -20,8 +20,8 @@ export function Experience() {
 
   let calculatedSize = fontSize * sizeIncrement;
 
-  if (calculatedSize < -16) {
-    calculatedSize = -16;
+  if (calculatedSize < -4) {
+    calculatedSize = -4;
   }
 
   if (calculatedSize > 32) {

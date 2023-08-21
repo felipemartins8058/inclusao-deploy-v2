@@ -119,7 +119,8 @@ export const Text = styled.p<TextProps>`
 export const BtnText = styled.p<TextProps>`
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: ${(props) => props.fontSize}px;
+    //font-size: 18px;
     //line-height: 160%;
     color: ${(props) => (props.color ? `${props.color}` : props.theme.color_button)};
     text-align: ${(props) => (props.textAlign ? `${props.textAlign}` : `left`)};

@@ -3,7 +3,7 @@
 import styled from "styled-components";
 
 interface ColorBlockProps {
-    gridArea: string;
+  gridArea: string;
 }
 
 export const DivSquares = styled.div`
@@ -31,11 +31,9 @@ export const DivSquares = styled.div`
 
 export const ColorBlock = styled.div<ColorBlockProps>`
     background-color: ${(props) => props.color};
-    width: 100%;
-    height: 100%;
     border-radius: 4px;
     grid-area: ${(props) => props.gridArea};
-    overflow: hidden;
+    //overflow: hidden;
     display: flex;
     justify-content: center;
 
@@ -51,4 +49,4 @@ export const ColorBlock = styled.div<ColorBlockProps>`
     h2 {
         padding: 1rem;
     }
-`;
+`

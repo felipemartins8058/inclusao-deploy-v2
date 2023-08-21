@@ -12,6 +12,7 @@ import { ZodType, z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { redirect } from "next/navigation";
+import { useFontStore } from "@/components/header/header";
 
 type LoginFormData = {
     email: string;
@@ -29,6 +30,18 @@ export default function Login() {
         handleSubmit,
         formState: { errors },
     } = useForm<LoginFormData>({ resolver: zodResolver(schema) });
+
+    const { fontSize, sizeIncrement } = useFontStore();
+
+    let calculatedSize = fontSize * sizeIncrement;
+
+    if (calculatedSize < -6) {
+        calculatedSize = -6;
+    }
+
+    if (calculatedSize > 32) {
+        calculatedSize = 32;
+    }
 
     async function handleLogin(data: LoginFormData) {
         //data.preventDefault()

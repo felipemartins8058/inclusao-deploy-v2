@@ -18,7 +18,7 @@ export const fakeCardsInfoHighlight = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "http://localhost:8080/assets/images/image6.png",
+                path: "https://dev-inclusao.netlify.app/assets/images/image6.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -35,7 +35,7 @@ export const fakeCardsInfoHighlight = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "http://localhost:8080/assets/images/image7.png",
+                path: "https://dev-inclusao.netlify.app/assets/images/image7.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -52,7 +52,7 @@ export const fakeCardsInfoHighlight = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "http://localhost:8080/assets/images/image8.png",
+                path: "https://dev-inclusao.netlify.app/assets/images/image8.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -72,7 +72,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "http://localhost:8080/assets/images/image6.png",
+                path: "https://dev-inclusao.netlify.app/assets/images/image6.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -89,7 +89,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "http://localhost:8080/assets/images/image7.png",
+                path: "https://dev-inclusao.netlify.app/assets/images/image7.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -106,7 +106,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "http://localhost:8080/assets/images/image8.png",
+                path: "https://dev-inclusao.netlify.app/assets/images/image8.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -123,7 +123,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "http://localhost:8080/assets/images/image6.png",
+                path: "https://dev-inclusao.netlify.app/assets/images/image6.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -140,7 +140,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "http://localhost:8080/assets/images/image7.png",
+                path: "https://dev-inclusao.netlify.app/assets/images/image7.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -157,7 +157,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "http://localhost:8080/assets/images/image8.png",
+                path: "https://dev-inclusao.netlify.app/assets/images/image8.png",
                 alt: "imagem placeholder",
             },
         ],

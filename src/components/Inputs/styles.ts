@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 
+interface TextInputProps {
+    fontSize: number;
+}
+
 export const FormGroup = styled.div`
     margin-bottom: .5rem;
 `
 
-export const TextInput = styled.input`
+export const TextInput = styled.input<TextInputProps>`
     border-radius: 5px;
     border: 1px solid ${(props) => props.theme.color_default_border};
     background: ${(props) => props.theme.color_background_light};
@@ -13,7 +17,8 @@ export const TextInput = styled.input`
     width: 100%;
 
     &::placeholder{
-        font-size: 16px;
+        font-size: ${(props) => props.fontSize}px;
+        //font-size: 16px;
         font-style: normal;
         font-weight: 400;
         line-height: 160%;

@@ -1,6 +1,10 @@
 'use client'
 import styled from 'styled-components'
 
+interface Linkprops {
+  fontSize: number;
+}
+
 export const Header = styled.header`
   display: flex;
   flex-direction: row;
@@ -14,6 +18,10 @@ export const Header = styled.header`
 
   @media(max-width: 768px){
   }
+`
+
+export const Link = styled.a<Linkprops>`
+  font-size: ${(props) => props.fontSize}px;
 `
 
 export const DivRight = styled.div`

@@ -56,8 +56,8 @@ export default function Home() {
 
     let calculatedSize = fontSize * sizeIncrement;
 
-    if (calculatedSize < -16) {
-        calculatedSize = -16;
+    if (calculatedSize < -4) {
+        calculatedSize = -4;
     }
 
     if (calculatedSize > 32) {
@@ -104,7 +104,7 @@ export default function Home() {
                         color={Theme().color_background_blue}
                         darkBackground={true}
                     />
-                    <Text color={Theme().color_text_light}>
+                    <Text fontSize={16 + calculatedSize} color={Theme().color_text_light}>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Lorem ipsum.
@@ -151,7 +151,7 @@ export default function Home() {
                             purus. Praesent rutrum est id diam eleifend
                             scelerisque.
                         </Text>
-                        <Text color={Theme().color_text_light}>
+                        <Text fontSize={16 + calculatedSize} color={Theme().color_text_light}>
                             Proin semper, lorem ut commodo finibus, felis purus
                             eleifend mauris, vel vestibulum enim erat eget
                             purus. Praesent rutrum est id diam eleifend
