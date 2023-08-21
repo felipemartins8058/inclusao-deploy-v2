@@ -7,7 +7,7 @@ export const CardsSection = styled.section`
 `;
 
 export const CardsSectionWrapper = styled.div`
-    padding: 5rem 0;
+    padding: 5rem 1rem;
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
@@ -19,7 +19,6 @@ export const CardsSectionWrapper = styled.div`
 export const CardsGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
 `;
 
 export const SeloSection = styled.section`
@@ -27,7 +26,7 @@ export const SeloSection = styled.section`
 `;
 export const SeloSectionWrapper = styled.div`
     position: relative;
-    padding: 5rem 5rem;
+    padding: 5rem 1rem;
     max-width: 1440px;
     margin: 0 auto;
     display: flex;
@@ -44,19 +43,30 @@ export const SeloBox = styled.div`
     display: grid;
     grid-template-columns: 1fr 5fr;
     gap: 1.5rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const SeloGrid = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+        flex-direction: row;
+        gap: 1.4rem;
+    }
 `;
 
-export const SeloInclua = styled.div``;
+export const SeloInclua = styled.div`
+
+`;
 
 export const LetteringSection = styled.div`
-    overflow-x: hidden;
     padding: 5rem 0;
+    overflow-x: hidden;
 `;
 
 export const LetteringWrapper = styled.div`
@@ -69,8 +79,15 @@ export const LetteringWrapper = styled.div`
     scrollbar-width: none;  /* Firefox */
     &::-webkit-scrollbar{
         display: none;
-    }
+}
 `;
+
+export const SectionLetters = styled.section`
+    display: flex;
+    align-items: center;
+    flex-drirectiom: row;
+    gap: 1.5rem;
+`
 
 export const LetteringFont = styled.p`
     color: ${(props) => props.theme.color_h1};;

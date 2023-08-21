@@ -1,13 +1,19 @@
 'use client'
 import styled from 'styled-components'
 
-export const DivFooter = styled.footer`
+export const DivFooterColor = styled.div`
+  background-color: #212529;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const ContentFooter = styled.footer`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 1440px;
   padding: 2rem 4rem;
-  background-color: #212529;
-  gap: 24px;
+  gap: 1.5rem;
 `
 
 export const DivImg = styled.div`
@@ -24,14 +30,15 @@ export const DivInsideUp = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 480px) {
+  @media (max-width: 1200px) {
+    align-items: start;
     flex-direction: column;
   }
 `
 
 export const DivInsideUpLeft = styled.div`
   display: flex;
-  gap: 32px;
+  gap: 1.5rem;
 
   @media (max-width: 768px){
     flex-direction: column;
@@ -41,8 +48,21 @@ export const DivInsideUpLeft = styled.div`
 export const SectionFooter = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 `
+
+export const SectionFooterRight = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`
+
+export const DivSectionFooterRight = styled.div`
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+`
+
 export const H6 = styled.h6`
   font-size: 1rem;
   font-weight: bold;
@@ -56,10 +76,19 @@ export const Text = styled.p`
 
 export const DivInsideUpRight = styled.div`
   margin-top: 1.5rem;
+  margin-left: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 24px;
+  gap: 1.5rem;
+
+  @media (max-width: 1200px){
+    margin-left: 0;
+  }
+
+  @media (max-width: 768px) and (min-width: 480px){
+    justify-content: flex-start;
+  }
 
   @media (max-width: 480px){
     justify-content: flex-start;

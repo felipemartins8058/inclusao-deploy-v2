@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import StyledComponentsRegistry from "@/app/registry";
 import App from "./App";
-import Script from "next/script";
 
 export const metadata = {
     title: "Inclusão",
@@ -17,7 +16,6 @@ export default function RootLayout({
         <StyledComponentsRegistry>
             <App>
                 {children}
-                <Script src="https://vlibras.gov.br/app/vlibras-plugin.js" />
             </App>
         </StyledComponentsRegistry>
     );

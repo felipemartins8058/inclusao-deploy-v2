@@ -23,7 +23,7 @@ export const H2 = styled.h2<TitleH2Props>`
     font-weight: 600;
     font-size: ${(props) => props.fontSize}px;
     //font-size: 2em;
-    line-height: 39px;
+    //line-height: 39px;
     color: ${(props) => (props.color ? `${props.color}` : props.theme.color_h1)};
     background: ${(props) => (props.color ? `${props.color}` : props.theme.color_h1)};
     background: ${(props) => props?.darkBackground ? `linear-gradient(90deg, ${props.theme.color_text} 2.5rem, ${props.theme.color_text_light} 2.5rem)` : ``};

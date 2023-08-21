@@ -1,89 +1,54 @@
-'use client'
+"use client";
 
-import styled from 'styled-components'
+import styled from "styled-components";
+
+interface ColorBlockProps {
+    gridArea: string;
+}
 
 export const DivSquares = styled.div`
-  width: 708px;
-  height: 708px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 24px;
-  grid-row-gap: 24px;
-  grid-template-areas:
-    'a b b'
-    'c e j'
-    'd f j';
-`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+    grid-template-areas:
+        "a b b"
+        "c e j"
+        "d f j";
 
-export const SmallDivInsideRight = styled.div`
-  background-color: #fecdd6;
-  width: 220px;
-  height: 220px;
-  grid-area: a;
-  display: flex;
-  align-items: flex-end;
-`
-export const SmallDivInsideRight2 = styled.div`
-  background-color: #d9d6fe;
-  width: 220px;
-  height: 220px;
-  grid-area: c;
-  display: flex;
-  padding: 1.5rem 1.5rem;
-`
+    @media (max-width: 768px) {
+        grid-template-areas:
+            "e d d"
+            "b b b"
+            "c c c";
+        grid-template-rows: 1fr;
 
-export const SmallDivInsideRight3 = styled.div`
-  background-color: #b9e6fe;
-  width: 220px;
-  height: 220px;
-  grid-area: d;
+        & > div:nth-child(7), & > div:nth-child(1), & > div:nth-child(5) {
+          display: none;
+        }
+    }
+`;
 
-  display: flex;
-  align-items: flex-end;
-`
+export const ColorBlock = styled.div<ColorBlockProps>`
+    background-color: ${(props) => props.color};
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    grid-area: ${(props) => props.gridArea};
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 
-export const SmallDivInsideRight4 = styled.div`
-  background-color: #d9d6fe;
-  width: 220px;
-  height: 220px;
-  grid-area: e;
-  display: flex;
-  align-items: flex-end;
-`
+    img {
+        height: 100%;
+        object-fit: cover;
 
-export const SmallDivInsideRight5 = styled.div`
-  background-color: #99f6e0;
-  width: 220px;
-  height: 220px;
-  grid-area: f;
-  display: flex;
-  align-items: flex-end;
-`
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+    }
 
-export const BigDivInsideRight = styled.div`
-  background-color: #99f6e0;
-  max-width: 464px;
-  min-width: 440px;
-  height: 220px;
-  grid-area: b;
-  display: flex;
-  padding: 1.5rem 1.5rem;
-`
-
-export const BigDivInsideRight2 = styled.div`
-  background-color: #feee95;
-  width: 220px;
-  height: 464px;
-  grid-area: j;
-  display: flex;
-  align-items: flex-end;
-`
-
-export const InclusionImageLogin = styled.img`
-  max-width: 200px;
-`
-
-export const H4 = styled.h2`
-  font-size: 1.5rem;
-`
+    h2 {
+        padding: 1rem;
+    }
+`;

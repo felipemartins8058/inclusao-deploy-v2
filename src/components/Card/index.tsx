@@ -17,6 +17,7 @@ interface CardProps {
     openModal: any;
     ariaLabel: string;
     imageAlt: string;
+    className?: string;
 }
 
 export default function Card({ title, text, image, color, link, openModal, ariaLabel, imageAlt }: CardProps) {
@@ -33,8 +34,8 @@ export default function Card({ title, text, image, color, link, openModal, ariaL
     }
 
     return (
-        <S.Card aria-label={ariaLabel}>
-            {/* <EditButton handleOnClick={openModal}/> */}
+        <S.Card className="keen-slider__slide" aria-label={ariaLabel}>
+            {/* <EditButton handleOnClick={openModal} /> */}
             <S.CardImage>
                 <S.CardImageBackground color={color} />
                 <S.CardImageGrid>

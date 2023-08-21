@@ -6,14 +6,15 @@ export const DivExp = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 5rem;
+  padding: 2rem 5rem;
 
-
+  @media (max-width: 480px){
+    padding: 2rem 2rem;
+  }
 `
 
 export const DivInsideExperience = styled.div`
   position: relative;
-  padding: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,20 +36,32 @@ export const TextExperience = styled.p`
 `
 
 export const DivInsideExperienceUsers = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  padding-top: 3.5rem;
+  padding-top: 2.5rem;
+  row-gap: 4rem;
+  column-gap: 3.5rem;
+
+  @media (max-width: 768px){
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 425px){
+    grid-template-columns: repeat(2, 1fr);
+  }
 
 `
 
 export const UserSection = styled.section`
-  width: 14rem;
-  height: 4.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
 `
 
 export const UserImg = styled.img`
-  width: 7rem;
-  height: 2rem;
+  /* width: 7rem;
+  height: 2rem; */
 `

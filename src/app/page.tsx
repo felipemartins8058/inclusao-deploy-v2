@@ -1,13 +1,13 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import Image from "next/image";
 import * as S from "./styles";
 import { H1, Text } from "../styles/Fonts";
 import Title from "@/components/Title";
 import Card from "@/components/Card";
 
-import placeholder from "../assets/images/placeholderSelo.png";
-import selo from "../assets/images/seloInclusao.png";
+import placeholder from "../assets/images/placeholderSelo.svg";
+import selo from "../assets/images/seloInclusao.svg";
 import { Hero } from "@/components/hero/hero";
 import { Experience } from "@/components/experience/experience";
 import { Apresentation } from "@/components/apresentation/apresentation";
@@ -18,7 +18,40 @@ import { fakeCardsInfoHighlight } from "@/services/api";
 import Theme from "@/utils/useThemeProvider";
 import { useFontStore } from "@/components/header/header";
 
+import { useKeenSlider } from 'keen-slider/react'
+import 'keen-slider/keen-slider.min.css';
+
+import {ThemeContext} from '../app/App'
+
+// const animation = { duration: 15000, easing: (t: number) => t }
+
 export default function Home() {
+
+    const [sliderCardRef] = useKeenSlider({
+        mode: "free-snap",
+        slides: {
+            perView: 3,
+            spacing: 20,
+        },
+        breakpoints: {
+            "(max-width: 1200px) and (min-width: 1024px)": {
+                slides: { perView: 3, spacing: 15 },
+            },
+            "(max-width: 1024px) and (min-width: 768px)": {
+                slides: { origin: "center", perView: 2, spacing: 15 },
+            },
+            "(max-width: 768px) and (min-width: 480px)": {
+                slides: { perView: 2, spacing: 10 },
+            },
+            "(max-width: 480px) and (min-width: 320px)": {
+                slides: { perView: 1, spacing: 10 },
+            },
+            "(max-width: 320px)": {
+                slides: { perView: 1, spacing: 10 },
+            },
+        },
+    })
+
     const { fontSize, sizeIncrement } = useFontStore();
 
     let calculatedSize = fontSize * sizeIncrement;
@@ -51,6 +84,8 @@ export default function Home() {
         window.addEventListener("scroll", scrollLettering);
     }, []);
 
+    const selectedTheme = useContext(ThemeContext)
+
     return (
         <main aria-label="Página Inicial">
             <Hero />
@@ -58,12 +93,12 @@ export default function Home() {
                 {
                     //TODO: Improve infinite lettering logic
                 }
-                <S.LetteringWrapper ref={letteringRef}>
+                <S.LetteringWrapper ref={letteringRef} >
                     {letteringPattern()} {letteringPattern()}
                 </S.LetteringWrapper>
             </S.LetteringSection>
-            <S.CardsSection aria-label="seção:já ouviu falar de inclusão?">
-                <S.CardsSectionWrapper>
+            <S.CardsSection aria-label="seção:já ouviu falar de inclusão?"  >
+                <S.CardsSectionWrapper >
                     <Title
                         title="Já ouviu falar de inclusão?"
                         color={Theme().color_background_blue}
@@ -74,23 +109,17 @@ export default function Home() {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Lorem ipsum.
                     </Text>
-                    <S.CardsGrid aria-label="grade de cartões">
-                        {/* <Card
-                            link="/"
-                            title="O que é inclusão?"
-                            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum."
-                            color="var(--yellow)"
-                            image=""
-                            openModal={openModal}
-                        /> */}
-                        {fakeCardsInfoHighlight.map((card) => (
+                    <S.CardsGrid className="keen-slider" ref={sliderCardRef} aria-label="grade de cartões">
+                        {fakeCardsInfoHighlight.map((card, index) => (
                             <Card
+                                key={index}
+                                className="keen-slider__slide"
                                 link="/"
                                 ariaLabel={card.aria_label}
                                 imageAlt={card.image_alt}
                                 title={card.titulo}
                                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum."
-                                color={Theme().color_background_blue}
+                                color={selectedTheme == 'defaultTheme' ? Theme().color_background_blue : Theme().color_button}
                                 image={card.imagem[0].path}
                                 openModal={() => { }}
                             />

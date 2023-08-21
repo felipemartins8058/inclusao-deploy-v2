@@ -2,142 +2,58 @@
 import styled from 'styled-components'
 
 export const DivApresentation = styled.section`
-  display: flex;
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
   margin: 0 auto;
-  padding: 5rem 5rem;
+  padding: 5rem 1rem;
   align-items: center;
   justify-content: center;
   position: relative;
   gap: 4rem;
 
-  @media (max-width: 1200px) and (min-width: 1024px){
-    flex-direction: column-reverse;
-  }
-
   @media (max-width: 1024px)
   {
     flex-direction: column-reverse;
+    grid-template-columns: 1fr;
   }
 `
 
 export const DivInsideLeft = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1.875rem 1fr;
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 1.5rem;
-  padding-top: 0.5rem;
+  gap: 1rem;
 
 `
 export const DivInsideLeftApresentation = styled.div`
   background-color: #feee95;
-  width: 13.75rem;
-  height: 19.8125rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
   display: flex;
   align-items: flex-end;
-
-  @media (max-width: 1200px) and (min-width: 1024px){
-    width: 11.75rem;
-    height: 17rem;
-  }
-
-  @media (max-width: 1024px) and (min-width: 768px){
-    width: 10rem;
-    height: 14.9rem
-
-  }
-
-  @media (max-width: 768px) and (min-width: 480px){
-    width: 9rem;
-    height: 12.88rem
-  }
-
-  @media (max-width: 480px) and (min-width: 320px){
-    width: 7rem;
-    height: 11rem;
-  }
-
-  @media (max-width: 320px){
-    width: 6rem;
-    height: 9rem;
-  }
 `
 
-export const DivInsideLeftApresentation2 = styled.div`
-  background-color: #fecdd6;
-  width: 13.75rem;
-  height: 16.375rem;
-  grid-column-start: 2;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 2;
-  display: flex;
-  align-items: flex-end;
+export const ColorBlock = styled.div`
+  background-color: ${props => props.color};
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
 
-  @media (max-width: 1200px) and (min-width: 1024px){
-    width: 11.75rem;
-    height: 13.60rem;
-  }
-
-  @media (max-width: 1024px) and (min-width: 768px){
-    width: 10rem;
-    height: 11.5rem;
-  }
-
-  @media (max-width: 768px) and (min-width: 480px){
-    width: 9rem;
-    height: 9.5rem;
-  }
-
-  @media (max-width: 480px) and (min-width: 320px){
-    width: 7rem;
-    height: 7.6rem;
-  }
-
-  @media (max-width: 320px){
-    width: 6rem;
-    height: 5.6rem;
+  img{
+    height: 100%;
+    object-fit: cover;
   }
 `
+export const DivInsideLeftDivider = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  gap: 1rem;
 
-export const DivInsideLeftApresentation3 = styled.div`
-  background-color: #d9d6fe;
-  width: 6.125rem;
-  height: 19.8125rem;
-  grid-column-start: 3;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  display: flex;
-  align-items: flex-end;
-
-  @media (max-width: 1200px) and (min-width: 1024px){
-    width: 5.3rem;
-    height: 17rem;
-  }
-
-  @media (max-width: 1024px) and (min-width: 768px){
-    width: 4.6rem;
-    height: 14.9rem;
-  }
-
-  @media (max-width: 768px) and (min-width: 480px){
-    width: 4.1rem;
-    height: 12.88rem;
-  }
-
-  @media (max-width: 480px) and (min-width: 320px){
-    width: 3.5rem;
-    height: 11rem;
-  }
-
-  @media (max-width: 320px){
-    width: 3rem;
-    height: 9rem;
-  }
 `
 
 export const SmallDivInsideLeftApresentation = styled.div`

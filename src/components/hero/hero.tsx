@@ -7,10 +7,6 @@ import {
     DivInsideLeftBar,
     SmallDivInsideRight,
     BigDivInsideRight,
-    SmallDivInsideRight2,
-    SmallDivInsideRight4,
-    SmallDivInsideRight3,
-    BigDivInsideRight2,
     InclusionImage,
     InclusionBigImage,
 } from "./heroStyles";
@@ -42,7 +38,7 @@ export function Hero() {
     return (
         <DivHero aria-label="Banner">
             <DivInsideLeft>
-                <DivInsideLeftBar></DivInsideLeftBar>
+                <DivInsideLeftBar />
                 <DivInsideLeftText>
                     <F.H1 className="hero" fontSize={40 + calculatedSize}>Construindo indicadores sobre inclusão</F.H1>
                     <F.H3 className="hero" fontSize={28 + calculatedSize}>
@@ -52,42 +48,66 @@ export function Hero() {
                 </DivInsideLeftText>
             </DivInsideLeft>
             <DivInsideRight aria-label='grade de imagens'>
-                <SmallDivInsideRight>
+                <SmallDivInsideRight color={'#b9e6fe'}
+                    gridRowStart={1}
+                    gridColumnStart={1}
+                    gridColumnEnd={1}>
                     <InclusionImage
                         src={ImageInclusion.src}
                         alt="Menina branca de longos cabelos castanhos, vestindo uma blusa rosa e uma calça jeans e utilizando uma capa amarela e uma mascara de super heroína"
                     />
                 </SmallDivInsideRight>
-                <SmallDivInsideRight2>
+                <SmallDivInsideRight color={'#feee95'}
+                    gridRowStart={2}
+                    gridRowEnd={2}
+                    gridColumnStart={1}
+                    gridColumnEnd={1}>
                     <InclusionImage
                         src={ImageInclusion2.src}
                         alt="Mulher branca de cabelos curtos, vestindo uma blusa branca e fazendo libras"
                     />
-                </SmallDivInsideRight2>
-                <SmallDivInsideRight3>
+                </SmallDivInsideRight>
+                <SmallDivInsideRight color={'#99f6e0'}
+                    gridRowStart={1}
+                    gridColumnStart={3}
+                    gridColumnEnd={3}>
                     <InclusionImage
                         src={ImageInclusion3.src}
                         alt="Menino branco de cabelo curto, vestindo uma camisa azul, sorrindo com as maõs para cima, cheias de tinta"
                     />
-                </SmallDivInsideRight3>
-                <SmallDivInsideRight4>
+                </SmallDivInsideRight>
+                <SmallDivInsideRight color={'#fecdd6'}
+                    gridRowStart={2}
+                    gridColumnStart={3}
+                    gridColumnEnd={3}>
                     <InclusionImage
                         src={ImageInclusion4.src}
                         alt="Homen preto de cabelo curto, vestindo uma camisa xadrez branca e vermelha, com a mão esquerda no ouvido"
                     />
-                </SmallDivInsideRight4>
-                <BigDivInsideRight>
+                </SmallDivInsideRight>
+                <BigDivInsideRight
+                    color={'#d9d6fe'}
+                    gridRowStart={1}
+                    gridRowEnd={3}
+                    gridColumnStart={2}
+                    gridColumnEnd={2}
+                >
                     <InclusionBigImage
                         src={ImageInclusion5.src}
                         alt="Mulher branca cadeirante, de cabelo preto amarrado, vestindo uma jaqueta jeans, uma camisa branca, uma calça jeans e um tênis branco, sentada na cadeira de rodas com as mãos nas laterais"
                     />
                 </BigDivInsideRight>
-                <BigDivInsideRight2>
+                <BigDivInsideRight color={'#b9e6fe'}
+                    gridRowStart={1}
+                    gridRowEnd={3}
+                    gridColumnStart={4}
+                    gridColumnEnd={4}
+                >
                     <InclusionBigImage
                         src={ImageInclusion6.src}
                         alt="Mulher preta de cabelos longos pretos, vestindo um casado bege, uma camisa branca, uma calça preta, uma bota preta e um oculos preto, em pé segurando um celular na mão direita e uma bengala branca na mão esquerda"
                     />
-                </BigDivInsideRight2>
+                </BigDivInsideRight>
             </DivInsideRight>
         </DivHero>
     );

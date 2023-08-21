@@ -2,72 +2,80 @@
 import styled from 'styled-components'
 
 export const Header = styled.header`
-  position:fixed;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  top:0;
-  width: 100%;
-  background-color: white;
-  margin: 0;
-  padding: 0 10rem;
-  gap: 1rem;
-  height: 9.5rem;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+  padding: 0 2rem;
+  max-width: 1440px
+  gap: 1rem;
   background: ${props => props.theme.color_background_light};
-  z-index: 999;
+
+  @media(max-width: 768px){
+  }
 `
 
 export const DivRight = styled.div`
   width: 100%;
-  height: 132px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 1rem;
 `
 
 export const DivInsideUp = styled.div`
   width: 100%;
-  height: 20px;
-  margin-top: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
+
+
+  @media (max-width: 768px){
+    justify-content: end;
+  }
 `
 
 export const DivInsideUpLeft = styled.div`
   width: 100%;
-  height: 20px;
-  margin-top: 20px;
   display: flex;
-  gap: 24px;
+  gap: 1.5rem;
+
+  @media (max-width: 768px){
+    display: none;
+  }
 `
 export const DivInsideUpRight = styled.div`
-  width: 100%;
-  height: 20px;
-  margin-top: 20px;
   display: flex;
-  gap: 24px;
+  gap: 1.5rem;
   justify-content: flex-end;
+
+  @media (max-width: 768px){
+    gap:  1rem;
+  }
+
+  @media (max-width: 480px){
+    gap:  0.5rem;
+  }
 `
 
 export const DivInsideDown = styled.div`
   width: 100%;
-  height: 24px;
   display: flex;
   align-items: center;
-  
+  justify-content: space-between;
+
+  @media (max-width: 768px){
+    display: none;
+  }
 `
 
 export const DivInsideDownLeft = styled.div`
-  width: 100%;
-  height: 24px;
   display: flex;
 `
 
 export const DivInsideDownRight = styled.div`
-  width: 100%;
-  height: 24px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -77,6 +85,23 @@ export const SeparatorSmall = styled.div`
   border-top: 1px solid #ced4da;
   border-bottom: 1px solid #ced4da;
   width: 100%;
+
+  @media (max-width: 768px){
+    display: none;
+  }
+`
+
+export const BigSeparator = styled.div`
+  width: 100%;
+  margin-top: 1.75rem;
+  background: #f7f9fa;
+  border-top: 1px solid #ced4da;
+  border-bottom: 1px solid #ced4da;
+  height: 0.0625rem;
+
+  @media (max-width: 768px){
+    margin-top: 0;
+  }
 `
 
 export const Separator = styled.div`
@@ -89,13 +114,18 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 132px;
+  margin-right: 1rem;
+
 `
 
 export const LogoImg = styled.img`
-  width: 60xp;
-  height: 84px;
+  width: 4rem;
+  height: 5.25rem;
+
+  @media (max-width: 768px){
+    width: 2.125rem;
+    height: 3.025rem;
+  }
 `
 export const IconImg = styled.img``
 
@@ -143,13 +173,13 @@ export const ButtonChangeFont = styled.button`
   &:hover{
     cursor: pointer;
   }
+
 `
 
 export const ButtonLogin = styled.a`
-  width: 5.125rem;
-  height: 2.5rem;
   border: 1px solid black;
   border-radius: 4px;
   text-align: center;
   line-height: 2.5rem;
+
 `

@@ -112,7 +112,6 @@ export const Text = styled.p<TextProps>`
 
     &.experience {
         padding-top: 1.5rem;
-        padding-right: 6rem;
         text-align: center;
     }
 `;

@@ -1,11 +1,12 @@
 "use client";
-import React from "react";
+import React, {useContext} from "react";
 import * as S from "./styles";
 import { BtnText } from "@/styles/Fonts";
 import { FaLongArrowAltRight, FaExternalLinkAlt, FaEdit } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
 import { BiLogIn } from "react-icons/bi";
 import Link from "next/link";
+import { ThemeContext } from "@/app/App";
 
 import Theme from "@/utils/useThemeProvider";
 
@@ -81,15 +82,17 @@ export function EditButton({
 export function SubmitButton({
     variant,
     label,
-    color = Theme().color_background_blue,
+    color = Theme().color_button,
     outline = false,
 }: SubmitButtonProps) {
+    const selectedTheme = useContext(ThemeContext)
+    let selectedColor = selectedTheme == 'defaultTheme' ? color : Theme().color_button
     return (
         <S.Button type={'submit'} outline={outline}>
             {!!label ? (
-                <BtnText color={color}>{label}</BtnText>
+                <BtnText color={selectedColor}>{label}</BtnText>
             ) : (null)}
-            {iconVariant(variant, color)}
+            {iconVariant(variant, selectedColor)}
         </S.Button>
     );
 }
