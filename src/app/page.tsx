@@ -13,7 +13,7 @@ import { Experience } from "@/components/experience/experience";
 import { Apresentation } from "@/components/apresentation/apresentation";
 import { EditButton } from "@/components/Button";
 import { ModalCard } from "@/components/Modal/Modal";
-import { fakeCardsInfoHighlight } from "@/services/api";
+import { fakeCardsInfoHighlight } from "@/services/Api";
 
 import Theme from "@/utils/useThemeProvider";
 import { useFontStore } from "@/components/header/header";
@@ -22,13 +22,15 @@ import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css';
 
 import {ThemeContext} from '../app/App'
+import { AuthContext } from "@/services/AuthProvider";
 
 // const animation = { duration: 15000, easing: (t: number) => t }
 
 export default function Home() {
 
+    const { auth } = useContext(AuthContext);
+
     const [sliderCardRef] = useKeenSlider({
-        mode: "free-snap",
         slides: {
             perView: 3,
             spacing: 20,
@@ -130,12 +132,12 @@ export default function Home() {
             <Apresentation />
             <S.SeloSection aria-label="seção: o que é o selo inclua?">
                 <S.SeloSectionWrapper>
-                    {/* <EditButton
+                    {auth?.setLoggedUser?.roles == 'user' ? (<EditButton
                         handleOnClick={() => { }}
                         label="Editar"
                         outline={true}
                         color={Theme().color_text}
-                    /> */}
+                    />) : (null)}
                     <div>
                         <Title
                             title="O que é o selo inclua?"

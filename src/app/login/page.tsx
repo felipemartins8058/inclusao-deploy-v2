@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useContext } from "react";
 import * as S from "./styles";
 import * as F from "@/styles/Fonts";
 import { H5 } from "../../styles/Fonts";
@@ -8,20 +8,29 @@ import TextInput from "@/components/Inputs/TextInput";
 import { SubmitButton } from "@/components/Button";
 import { GridSquare } from "@/components/gridSquares/gridSquares";
 import Theme from "@/utils/useThemeProvider";
-import { ZodType, z } from "zod";
+import { ZodType, set, z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useFontStore } from "@/components/header/header";
+import { Api } from "@/services/Api";
+import { AuthContext } from "@/services/AuthProvider";
+import getLoggedUser from "@/services/UserLogged";
+
+import useUserStore from "@/stores/useUser";
 
 type LoginFormData = {
-    email: string;
+    emailInput: string;
     password: string;
 };
 
 export default function Login() {
+
+    const router = useRouter();
+    const { setAuth } = useContext(AuthContext);
+
     const schema: ZodType<LoginFormData> = z.object({
-        email: z.string().email(),
+        emailInput: z.string().email(),
         password: z.string().min(6),
     });
 
@@ -43,10 +52,27 @@ export default function Login() {
         calculatedSize = 32;
     }
 
+    const setLoggedUser = useUserStore((state) => state.addUser)
+    const getLoggedUserSte = useUserStore((state) => state.user)
+
+    async function loginTeste({emailInput, password}: {emailInput: string, password: string}){
+        try {
+            const response = await Api.post("/auth", {email: emailInput, senha: password});
+            const acessToken = response.data.data.accessToken;
+            const roles = response.data.data?.roles ? response.data.data.roles : 'user';
+            const {email, idUsuario} = await getLoggedUser({acessToken});
+
+            setLoggedUser({email, idUsuario,acessToken, roles});
+
+            router.push('/');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     async function handleLogin(data: LoginFormData) {
         //data.preventDefault()
-        redirect("/");
-        console.log(data);
+        loginTeste(data)
     }
     return (
         <S.MainLogin aria-label="Página de Login">
@@ -63,9 +89,9 @@ export default function Login() {
                         <TextInput
                             label="EMAIL"
                             placeholder="Digite seu email"
-                            register={{ ...register("email") }}
+                            register={{ ...register("emailInput") }}
                         />
-                        {errors.email && (
+                        {errors.emailInput && (
                             <F.Text color="var(--dark-pink)">
                                 email inválido
                             </F.Text>

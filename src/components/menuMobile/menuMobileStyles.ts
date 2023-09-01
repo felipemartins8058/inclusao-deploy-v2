@@ -22,7 +22,7 @@ export const DivMobile = styled.div`
     top: 0;
     right: 0;
     animation: showSidebar .4s;
-    z-index: 1;
+    z-index: 9999;
 
     @keyframes showSidebar {
         from {
@@ -119,7 +119,7 @@ export const ButtonToggle = styled.button`
     justify-content: center;
     background-color: transparent;
     cursor: pointer;
-    z-index: 1;
+    z-index: 9999;
     border: solid 0.5px;
     border-radius: 5px;
     border-color: #E9ECEF;
@@ -127,7 +127,7 @@ export const ButtonToggle = styled.button`
     &.open {
         position: fixed;
         right: 2rem;
-        top: 5rem;
+        top: 4.725rem;
     }
 
     @media(min-width: 1025px) {
@@ -177,6 +177,7 @@ export const SobreposicaoDiv = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
 
     &.open {
         display: block;

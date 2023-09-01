@@ -1,12 +1,9 @@
 import axios from "axios";
 
-const api = axios.create({
-    baseURL: "",
+export const Api = axios.create({
+    baseURL: "http://localhost:3000/",
     headers: {
-        //"Access-Control-Allow-Origin": "*",
-        // "Access-Control-Allow-Headers": "*",
-        // 'Content-Type' : 'application/json',
-        // "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        'Content-Type' : 'application/x-www-form-urlencoded',
     },
 });
 //TODO: Remove after api is ready
@@ -18,7 +15,7 @@ export const fakeCardsInfoHighlight = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "https://dev-inclusao.netlify.app/assets/images/image6.png",
+                path: "http://localhost:8080/assets/images/image6.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -35,7 +32,7 @@ export const fakeCardsInfoHighlight = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "https://dev-inclusao.netlify.app/assets/images/image7.png",
+                path: "http://localhost:8080/assets/images/image7.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -52,7 +49,7 @@ export const fakeCardsInfoHighlight = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "https://dev-inclusao.netlify.app/assets/images/image8.png",
+                path: "http://localhost:8080/assets/images/image8.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -72,7 +69,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "https://dev-inclusao.netlify.app/assets/images/image6.png",
+                path: "http://localhost:8080/assets/images/image6.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -89,7 +86,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "https://dev-inclusao.netlify.app/assets/images/image7.png",
+                path: "http://localhost:8080/assets/images/image7.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -106,7 +103,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "https://dev-inclusao.netlify.app/assets/images/image8.png",
+                path: "http://localhost:8080/assets/images/image8.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -123,7 +120,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "https://dev-inclusao.netlify.app/assets/images/image6.png",
+                path: "http://localhost:8080/assets/images/image6.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -140,7 +137,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "https://dev-inclusao.netlify.app/assets/images/image7.png",
+                path: "http://localhost:8080/assets/images/image7.png",
                 alt: "imagem placeholder",
             },
         ],
@@ -157,7 +154,7 @@ export const fakeCardsInfo = [
         corpo_texto: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum.",
         imagem: [
             {
-                path: "https://dev-inclusao.netlify.app/assets/images/image8.png",
+                path: "http://localhost:8080/assets/images/image8.png",
                 alt: "imagem placeholder",
             },
         ],

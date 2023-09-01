@@ -10,18 +10,19 @@ export const DivFooterColor = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 1rem;
 `
 
 export const ContentFooter = styled.footer`
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 1440px;
-  padding: 2rem 4rem;
   gap: 1.5rem;
 `
 
 export const DivImg = styled.div`
-
+  margin-top: 3.75rem;
 `
 
 export const LogoImg = styled.img`
@@ -67,12 +68,6 @@ export const DivSectionFooterRight = styled.div`
   flex-wrap: wrap;
 `
 
-export const H6 = styled.h6`
-  font-size: 1rem;
-  font-weight: bold;
-  color: #ffffff;
-`
-
 export const Text = styled.p<TextProps>`
   font-size: ${(props) => props.fontSize}px;
   //font-size: 1rem;
@@ -115,9 +110,8 @@ export const DivInsideDownLeft = styled.div`
 `
 
 export const DivInsideDownRight = styled.div`
-  height: 24px;
   margin-top: 1rem;
-  gap: 24px;
+  gap: 1.5rem;
   display: flex;
   justify-content: flex-end;
 `

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useContext} from "react";
 import * as S from "./styles";
 import { H3, Text } from "@/styles/Fonts";
 import grid from "../../assets/images/grid.png";
@@ -7,6 +7,7 @@ import image6 from "../../assets/images/image6.png";
 import Image from "next/image";
 import { EditButton, LinkButton } from "../Button";
 import { useFontStore } from "../header/header";
+import { AuthContext } from "@/services/AuthProvider";
 
 interface CardProps {
     title: string;
@@ -21,6 +22,7 @@ interface CardProps {
 }
 
 export default function Card({ title, text, image, color, link, openModal, ariaLabel, imageAlt }: CardProps) {
+    const { auth } = useContext(AuthContext);
     const { fontSize, sizeIncrement } = useFontStore();
 
     let calculatedSize = fontSize * sizeIncrement;
@@ -36,6 +38,7 @@ export default function Card({ title, text, image, color, link, openModal, ariaL
     return (
         <S.Card className="keen-slider__slide" aria-label={ariaLabel}>
             {/* <EditButton handleOnClick={openModal} /> */}
+            {auth.setLoggedUser?.roles === "user" && (<EditButton handleOnClick={openModal} />) }
             <S.CardImage>
                 <S.CardImageBackground color={color} />
                 <S.CardImageGrid>

@@ -6,7 +6,7 @@ import * as S from "./styles";
 import Title from "@/components/Title";
 import Card from "@/components/Card";
 import Theme from "@/utils/useThemeProvider";
-import { fakeCardsInfo } from "@/services/api";
+import { fakeCardsInfo } from "@/services/Api";
 import { ThemeContext } from "../App";
 import { useFontStore } from "@/components/header/header";
 

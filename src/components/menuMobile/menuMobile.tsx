@@ -1,9 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { GrClose } from 'react-icons/gr'
+import { AiOutlineClose } from 'react-icons/ai'
 import { FaFacebookSquare, FaLinkedin } from 'react-icons/fa'
-import { IoContrastOutline } from 'react-icons/io5'
 import Theme from '@/utils/useThemeProvider'
 import { DivMobile, NavBar, LinksMenuMobile, ItemsMenuMobile, ButtonToggle, ItemsMenuLink, SobreposicaoDiv } from './menuMobileStyles'
 const MenuMobile = () => {
@@ -26,8 +25,8 @@ const MenuMobile = () => {
                         <FaLinkedin size={22} color={Theme().color_icon_dark} aria-label="Ícone para rede social: linkedin" />
                     </LinksMenuMobile>
                 </DivMobile>
-                <ButtonToggle className={`menu ${isMenuOpen ? 'open' : ''}`} onClick={handleMenuToggle}>
-                    {isMenuOpen ? <GrClose size={27} /> : <GiHamburgerMenu size={27} />}
+                <ButtonToggle className={`menu ${isMenuOpen ? 'open' : ''}`} onClick={handleMenuToggle} aria-label="botão menu mobile" >
+                    {isMenuOpen ? <AiOutlineClose size={27} color={Theme().color_icon_dark} aria-label="Ícone Hambúrguer para fechar o menu monile" role='button' /> : <GiHamburgerMenu size={27} color={Theme().color_icon_dark} aria-label=" Ícone Hambúrguer para acessar o menu monile" role='button' />}
                 </ButtonToggle>
             </NavBar>
             <SobreposicaoDiv className={`menu ${isMenuOpen ? 'open' : ''}`} />

@@ -1,4 +1,5 @@
 "use client";
+import { useContext } from "react";
 import {
     DivApresentation,
     DivInsideLeft,
@@ -15,8 +16,10 @@ import { EditButton } from "../Button";
 import Theme from "@/utils/useThemeProvider";
 import { useFontStore } from "../header/header";
 import Image from "next/image";
+import { AuthContext } from "@/services/AuthProvider";
 
 export function Apresentation() {
+    const { auth } = useContext(AuthContext);
     const { fontSize, sizeIncrement } = useFontStore();
 
     let calculatedSize = fontSize * sizeIncrement;
@@ -32,6 +35,7 @@ export function Apresentation() {
     return (
         <DivApresentation aria-label="seção: o que é esta plataforma?">
             {/* <EditButton handleOnClick={() => { }} label='Editar' /> */}
+            {auth.setLoggedUser?.roles === "user" && (<EditButton handleOnClick={() => { }} label='Editar' />)}
             <DivInsideLeft>
                 <ColorBlock color={Theme().color_background_yellow}>
                     <Image

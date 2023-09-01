@@ -1,5 +1,5 @@
 "use client";
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import * as S from "./styles";
 import { BtnText } from "@/styles/Fonts";
 import { FaLongArrowAltRight, FaExternalLinkAlt, FaEdit } from "react-icons/fa";
@@ -24,6 +24,7 @@ interface SubmitButtonProps {
     variant?: string;
     color?: string;
     outline?: boolean;
+    fontSize?: number;
 }
 
 interface IconButtonProps {
@@ -100,8 +101,19 @@ export function SubmitButton({
 }: SubmitButtonProps) {
     const selectedTheme = useContext(ThemeContext)
     let selectedColor = selectedTheme == 'defaultTheme' ? color : Theme().color_button
+    const { fontSize, sizeIncrement } = useFontStore();
+
+    let calculatedSizeTextButton = fontSize * sizeIncrement;
+
+    if (calculatedSizeTextButton < -6) {
+        calculatedSizeTextButton = -6;
+    }
+
+    if (calculatedSizeTextButton > 16) {
+        calculatedSizeTextButton = 16;
+    }
     return (
-        <S.Button type={'submit'} outline={outline}>
+        <S.Button fontSize={16 + calculatedSizeTextButton} type={'submit'} outline={outline}>
             {!!label ? (
                 <BtnText color={selectedColor}>{label}</BtnText>
             ) : (null)}

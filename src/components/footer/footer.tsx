@@ -1,3 +1,4 @@
+'use client'
 import LogoImage from '../../assets/images/logobranco.svg'
 import FacebookIcon from '../../assets/images/facebookwhite.svg'
 import LogoSide from '../../assets/images/logoside.svg'
@@ -31,8 +32,8 @@ export function Footer() {
     calculatedSize = -4;
   }
 
-  if (calculatedSize > 32) {
-    calculatedSize = 32;
+  if (calculatedSize > 20) {
+    calculatedSize = 20;
   }
 
   return (

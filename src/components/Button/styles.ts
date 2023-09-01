@@ -4,9 +4,11 @@ import React from "react";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     outline?: boolean;
+    fontSize?: number;
 }
 
 export const Button = styled.button<ButtonProps>`
+    font-size: ${(props) => props.fontSize}px;
     border-radius: 4px;
     background: ${(props) =>
         props?.outline ? props.theme.color_background_button_light : props.theme.color_background_button_dark};

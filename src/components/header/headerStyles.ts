@@ -7,17 +7,20 @@ interface Linkprops {
 
 export const Header = styled.header`
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin: 1.5rem 0;
-  padding: 0 2rem;
-  max-width: 1440px
+  padding: 0 1rem;
+  width: 100%;
   gap: 1rem;
   background: ${props => props.theme.color_background_light};
 
-  @media(max-width: 768px){
-  }
+`
+
+export const DivHeader = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
 `
 
 export const Link = styled.a<Linkprops>`
@@ -49,6 +52,7 @@ export const DivInsideUpLeft = styled.div`
   width: 100%;
   display: flex;
   gap: 1.5rem;
+  background-color: white;
 
   @media (max-width: 768px){
     display: none;
@@ -87,6 +91,7 @@ export const DivInsideDownRight = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 1rem;
 `
 
 export const SeparatorSmall = styled.div`

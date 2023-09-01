@@ -10,6 +10,7 @@ export const FormGroup = styled.div`
 
 export const TextInput = styled.input<TextInputProps>`
     border-radius: 5px;
+    font-size: ${(props) => props.fontSize}px;
     border: 1px solid ${(props) => props.theme.color_default_border};
     background: ${(props) => props.theme.color_background_light};
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.16);

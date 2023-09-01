@@ -11,7 +11,6 @@ import {
     Container,
     ContainerImage,
     ContainerImage2,
-    Button,
     ButtonCancel,
     Button3,
     ModalContent,
@@ -323,9 +322,8 @@ export function ModalCard({ modalIsOpen, closeModal }: ModalCardProps) {
                             </ButtonCancel>
                             <ButtonSave
                                 type="submit"
-                                className={`saveClosed ${
-                                    selectedImage ? "saveOpen" : ""
-                                }`}
+                                className={`saveClosed ${selectedImage ? "saveOpen" : ""
+                                    }`}
                                 onClick={submitForm}
                             >
                                 <TextButtonSave>
