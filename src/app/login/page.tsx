@@ -13,11 +13,9 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useFontStore } from "@/components/header/header";
-import { Api } from "@/services/Api";
-import { AuthContext } from "@/services/AuthProvider";
-import getLoggedUser from "@/services/UserLogged";
-
-import useUserStore from "@/stores/useUser";
+import { Api } from "@/services/api";
+import axios from "axios";
+import { NextResponse } from "next/server";
 
 type LoginFormData = {
     emailInput: string;
@@ -25,9 +23,7 @@ type LoginFormData = {
 };
 
 export default function Login() {
-
-    const router = useRouter();
-    const { setAuth } = useContext(AuthContext);
+    const { push } = useRouter();
 
     const schema: ZodType<LoginFormData> = z.object({
         emailInput: z.string().email(),
@@ -52,19 +48,22 @@ export default function Login() {
         calculatedSize = 32;
     }
 
-    const setLoggedUser = useUserStore((state) => state.addUser)
-    const getLoggedUserSte = useUserStore((state) => state.user)
-
-    async function loginTeste({emailInput, password}: {emailInput: string, password: string}){
+    async function login({
+        emailInput,
+        password,
+    }: {
+        emailInput: string;
+        password: string;
+    }) {
         try {
-            const response = await Api.post("/auth", {email: emailInput, senha: password});
-            const acessToken = response.data.data.accessToken;
-            const roles = response.data.data?.roles ? response.data.data.roles : 'user';
-            const {email, idUsuario} = await getLoggedUser({acessToken});
+            const response = await Api.post("/auth", {
+                email: emailInput,
+                senha: password,
+            });
+            console.log(response);
+            const responseJson = await axios.get('/api/auth/me', {headers: {Authorization: `Bearer ${response.data.token}`}})
 
-            setLoggedUser({email, idUsuario,acessToken, roles});
-
-            router.push('/');
+            push("/");
         } catch (error) {
             console.log(error);
         }
@@ -72,7 +71,7 @@ export default function Login() {
 
     async function handleLogin(data: LoginFormData) {
         //data.preventDefault()
-        loginTeste(data)
+        login(data);
     }
     return (
         <S.MainLogin aria-label="Página de Login">
@@ -91,21 +90,18 @@ export default function Login() {
                             placeholder="Digite seu email"
                             register={{ ...register("emailInput") }}
                         />
-                        {errors.emailInput && (
-                            <F.Text color="var(--dark-pink)">
-                                email inválido
-                            </F.Text>
-                        )}
                         <TextInput
                             label="SENHA"
                             placeholder="Digite sua senha"
                             register={{ ...register("password") }}
                         />
-                        {errors.password && (
-                            <F.Text color="var(--dark-pink)">
-                                Senha inválida
-                            </F.Text>
-                        )}
+                        {errors.emailInput || errors.password ? (
+                            <div>
+                                <F.Text color="var(--dark-pink)">
+                                    Usuário ou senha inválidos
+                                </F.Text>
+                            </div>
+                        ) : null}
                         <SubmitButton
                             label="Acessar a plataforma"
                             variant="login"

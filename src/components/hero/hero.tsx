@@ -17,33 +17,17 @@ import ImageInclusion4 from "../../assets/images/imagerow4.svg";
 import ImageInclusion5 from "../../assets/images/imagecolumn1.svg";
 import ImageInclusion6 from "../../assets/images/imagecolumn2.svg";
 import * as F from "../../styles/Fonts";
-import { useFontStore } from "../header/header";
-
 
 export function Hero() {
-    const { fontSize, sizeIncrement } = useFontStore();
-
-    let calculatedSize = fontSize * sizeIncrement;
-
-    if (calculatedSize < -16) {
-        calculatedSize = -16;
-        alert("Você não pode colocar o texto menor que 12px;")
-    }
-
-    if (calculatedSize > 32) {
-        calculatedSize = 32;
-        alert("Você não pode colocar o texto maior que 72px;")
-    }
-
+    
     return (
         <DivHero aria-label="Banner">
             <DivInsideLeft>
                 <DivInsideLeftBar />
                 <DivInsideLeftText>
-                    <F.H1 className="hero" fontSize={40 + calculatedSize}>Construindo indicadores sobre inclusão</F.H1>
-                    <F.H3 className="hero" fontSize={28 + calculatedSize}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lorem ipsum dolor sit amet.
+                    <F.H1 className="hero" >Construindo indicadores sobre inclusão</F.H1>
+                    <F.H3 className="hero" >
+                        Indicadores Transformam a Realidade: Inclusão e Equidade em Ação.
                     </F.H3>
                 </DivInsideLeftText>
             </DivInsideLeft>

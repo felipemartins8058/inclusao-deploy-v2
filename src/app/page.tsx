@@ -13,7 +13,7 @@ import { Experience } from "@/components/experience/experience";
 import { Apresentation } from "@/components/apresentation/apresentation";
 import { EditButton } from "@/components/Button";
 import { ModalCard } from "@/components/Modal/Modal";
-import { fakeCardsInfoHighlight } from "@/services/Api";
+import { fakeCardsInfoHighlight } from "@/services/api";
 
 import Theme from "@/utils/useThemeProvider";
 import { useFontStore } from "@/components/header/header";
@@ -22,13 +22,10 @@ import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css';
 
 import {ThemeContext} from '../app/App'
-import { AuthContext } from "@/services/AuthProvider";
 
 // const animation = { duration: 15000, easing: (t: number) => t }
 
 export default function Home() {
-
-    const { auth } = useContext(AuthContext);
 
     const [sliderCardRef] = useKeenSlider({
         slides: {
@@ -107,9 +104,7 @@ export default function Home() {
                         darkBackground={true}
                     />
                     <Text fontSize={16 + calculatedSize} color={Theme().color_text_light}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Lorem ipsum.
+                    Junte-se a nós na missão de avaliar e aprimorar a Educação Inclusiva.
                     </Text>
                     <S.CardsGrid className="keen-slider" ref={sliderCardRef} aria-label="grade de cartões">
                         {fakeCardsInfoHighlight.map((card, index) => (
@@ -120,7 +115,7 @@ export default function Home() {
                                 ariaLabel={card.aria_label}
                                 imageAlt={card.image_alt}
                                 title={card.titulo}
-                                text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar felis id hendrerit congue. Morbi sollicitudin pulvinar enim id condimentum."
+                                text={card.resumo_texto}
                                 color={selectedTheme == 'defaultTheme' ? Theme().color_background_blue : Theme().color_button}
                                 image={card.imagem[0].path}
                                 openModal={() => { }}
@@ -132,12 +127,12 @@ export default function Home() {
             <Apresentation />
             <S.SeloSection aria-label="seção: o que é o selo inclua?">
                 <S.SeloSectionWrapper>
-                    {auth?.setLoggedUser?.roles == 'user' ? (<EditButton
+                    <EditButton
                         handleOnClick={() => { }}
                         label="Editar"
                         outline={true}
                         color={Theme().color_text}
-                    />) : (null)}
+                    />
                     <div>
                         <Title
                             title="O que é o selo inclua?"
@@ -145,22 +140,7 @@ export default function Home() {
                             darkBackground={true}
                         />
                         <Text fontSize={16 + calculatedSize} color={Theme().color_text_light}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Aliquam pulvinar felis id hendrerit congue.
-                            Morbi sollicitudin pulvinar enim id condimentum.
-                            Proin semper, lorem ut commodo finibus, felis purus
-                            eleifend mauris, vel vestibulum enim erat eget
-                            purus. Praesent rutrum est id diam eleifend
-                            scelerisque.
-                        </Text>
-                        <Text fontSize={16 + calculatedSize} color={Theme().color_text_light}>
-                            Proin semper, lorem ut commodo finibus, felis purus
-                            eleifend mauris, vel vestibulum enim erat eget
-                            purus. Praesent rutrum est id diam eleifend
-                            scelerisque. Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Aliquam pulvinar felis id hendrerit
-                            congue. Morbi sollicitudin pulvinar enim id
-                            condimentum. Proin semper, lorem ut commodo finibus.
+                        Nossa ferramenta é a chave para promover mudanças positivas na educação, avaliando práticas e impulsionando transformações efetivas. Introduzimos um selo para quantificar e planejar a implementação de práticas que tornem a educação genuinamente inclusiva, potencializando a diversidade e a equidade em todo o processo. Sabemos que são mudanças estruturais importantes, então criar métricas potentes será essencial para as transformações que tanto precisamos na educação.
                         </Text>
                     </div>
                     <S.SeloBox>

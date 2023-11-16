@@ -40,3 +40,23 @@ export const EditButton = styled.button<ButtonProps>`
     }
     z-index: 100;
 `;
+
+export const ActionButton = styled.button<ButtonProps>`
+    display: flex;
+    gap: 0.5rem;
+    right: 1rem;
+    top: 1rem;
+    align-items: center;
+    border-radius: 4px;
+    background: ${(props) =>
+        props?.outline ? props.theme.color_background_button_light : props.theme.color_background_button_dark};
+    border: 1px solid ${(props) => props.theme.color_default_border};
+    padding: 0.5rem;
+    cursor: pointer;
+    a {
+        align-items: center;
+        display: flex;
+        gap: 0.5rem;
+    }
+    z-index: 100;
+`;

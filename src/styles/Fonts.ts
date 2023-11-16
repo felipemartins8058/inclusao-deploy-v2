@@ -10,7 +10,20 @@ interface TextProps {
 export const H1 = styled.h1<TextProps>`
     font-style: normal;
     font-weight: 600;
-    font-size: ${(props) => props.fontSize}px;
+    font-size: 2.5rem;
+    zoom: 1.1;
+
+    @media (min-width: 0px) {
+        font-size: 2.5rem;
+    }
+    @media (min-width: 320px) {
+            font-size: calc(2.5rem + (48 - 40) * ((100vw - 320px) / (1440 - 320)));
+    }
+    @media (min-width: 1440px) {
+            font-size: 3rem;
+    }
+    
+    //${(props) => props.fontSize}px;
     //font-size: 40px;
     //line-height: 49px;
     color: ${(props) => (props.color ? `${props.color}` : props.theme.color_h1)};
@@ -25,7 +38,20 @@ export const H1 = styled.h1<TextProps>`
 export const H2 = styled.h2<TextProps>`
     font-style: normal;
     font-weight: 600;
-    font-size: ${(props) => props.fontSize}px;
+    font-size: 2rem;
+    zoom: 1.1;
+
+    @media (min-width: 0px) {
+        font-size: 2rem;
+    }
+    @media (min-width: 320px) {
+            font-size: calc(2rem + (40 - 32) * ((100vw - 320px) / (1440 - 320)));
+    }
+    @media (min-width: 1440px) {
+            font-size: 2.5rem;
+    }
+    
+    //${(props) => props.fontSize}px;
     //font-size: 32px;
     //line-height: 39px;
     color: ${(props) => (props.color ? `${props.color}` : props.theme.color_h2)};
@@ -37,7 +63,21 @@ export const H2 = styled.h2<TextProps>`
 export const H3 = styled.h3<TextProps>`
     font-style: normal;
     font-weight: 500;
-    font-size: ${(props) => props.fontSize}px;
+    font-size: 1.75rem;
+    zoom: 1.1;
+
+    @media (min-width: 0px) {
+        font-size: 1.75rem;
+    }
+    @media (min-width: 320px) {
+            font-size: calc(1.75rem + (28 - 20) * ((100vw - 320px) / (1440 - 320)));
+    }
+    @media (min-width: 1440px) {
+            font-size: 1.25rem;
+    }
+
+
+    //${(props) => props.fontSize}px;
     //font-size: 28px;
     //line-height: 34px;
     color: ${(props) => (props.color ? `${props.color}` : props.theme.color_h3)};
@@ -54,7 +94,20 @@ export const H3 = styled.h3<TextProps>`
 export const H4 = styled.h4<TextProps>`
     font-style: normal;
     font-weight: 500;
-    font-size: ${(props) => props.fontSize}px;
+    font-size: 1.5rem;
+    zoom: 1.1;
+
+    @media (min-width: 0px) {
+        font-size: 1.5rem;
+    }
+    @media (min-width: 320px) {
+            font-size: calc(1.5rem + (24 - 16) * ((100vw - 320px) / (1440 - 320)));
+    }
+    @media (min-width: 1440px) {
+            font-size: 1rem;
+    }
+    
+    //${(props) => props.fontSize}px;
     //font-size: 24px;
     //line-height: 29px;
     color: ${(props) => (props.color ? `${props.color}` : props.theme.color_h4)};
@@ -66,7 +119,20 @@ export const H4 = styled.h4<TextProps>`
 export const H5 = styled.h5<TextProps>`
     font-style: normal;
     font-weight: 500;
-    font-size: ${(props) => props.fontSize}px;
+    font-size: 1.5rem;
+    zoom: 1.1;
+
+    @media (min-width: 0px) {
+        font-size: 1.5rem;
+    }
+    @media (min-width: 320px) {
+            font-size: calc(1rem + (28 - 24) * ((100vw - 320px) / (1440 - 320)));
+    }
+    @media (min-width: 1440px) {
+            font-size: 1.75rem;
+
+    }
+    //${(props) => props.fontSize}px;
     //font-size: 20px;
     //line-height: 24px;
     color: ${(props) => (props.color ? `${props.color}` : props.theme.color_h5)};
@@ -78,7 +144,20 @@ export const H5 = styled.h5<TextProps>`
 export const H6 = styled.h6<TextProps>`
     font-style: normal;
     font-weight: 500;
-    font-size: ${(props) => props.fontSize}px;
+    font-size: 1rem;
+    zoom: 1.1;
+
+    @media (min-width: 0px) {
+        font-size: 1rem;
+    }
+    @media (min-width: 320px) {
+            font-size: calc(1rem + (24 - 16) * ((100vw - 320px) / (1440 - 320)));
+    }
+    @media (min-width: 1440px) {
+            font-size: 1.5rem;
+    }
+
+    //${(props) => props.fontSize}px;
     //font-size: 16px;
     //line-height: 20px;
     color: ${(props) => (props.color ? `${props.color}` : props.theme.color_h6)};

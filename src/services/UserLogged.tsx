@@ -1,5 +1,5 @@
 'use client'
-import { Api } from "@/services/Api";
+import { Api } from "@/services/api";
 
 export default async function getLoggedUser({acessToken}: {acessToken: string}){
     try {

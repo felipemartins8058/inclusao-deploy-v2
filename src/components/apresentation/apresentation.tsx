@@ -14,28 +14,14 @@ import ImageInclusionApresentation3 from "../../assets/images/imageApresentation
 import Title from "../Title";
 import { EditButton } from "../Button";
 import Theme from "@/utils/useThemeProvider";
-import { useFontStore } from "../header/header";
 import Image from "next/image";
-import { AuthContext } from "@/services/AuthProvider";
 
 export function Apresentation() {
-    const { auth } = useContext(AuthContext);
-    const { fontSize, sizeIncrement } = useFontStore();
-
-    let calculatedSize = fontSize * sizeIncrement;
-
-    if (calculatedSize < -4) {
-        calculatedSize = -4;
-    }
-
-    if (calculatedSize > 32) {
-        calculatedSize = 32;
-    }
 
     return (
         <DivApresentation aria-label="seção: o que é esta plataforma?">
             {/* <EditButton handleOnClick={() => { }} label='Editar' /> */}
-            {auth.setLoggedUser?.roles === "user" && (<EditButton handleOnClick={() => { }} label='Editar' />)}
+            <EditButton handleOnClick={() => { }} label='Editar' />
             <DivInsideLeft>
                 <ColorBlock color={Theme().color_background_yellow}>
                     <Image
@@ -64,15 +50,8 @@ export function Apresentation() {
                     title="O que é a plataforma?"
                     color={Theme().color_background_green}
                 />
-                <F.Text fontSize={16 + calculatedSize}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aliquam pulvinar felis id hendrerit congue. Morbi
-                    sollicitudin pulvinar enim id condimentum. Proin semper,
-                    lorem ut commodo finibus, felis purus eleifend mauris, vel
-                    vestibulum enim erat eget purus. Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Aliquam pulvinar felis id
-                    hendrerit congue. Morbi sollicitudin pulvinar enim id
-                    condimentum. Proin semper, lorem ut commodo finibus.
+                <F.Text>
+                Para transformar a inclusão em realidade, não basta apenas refletir sobre as mudanças, precisamos agir e demonstrar com ações concretas nosso comprometimento. A sustentabilidade da inclusão é crucial para evitar retrocessos, e para isso, é fundamental que governos, empresas e instituições se unam em políticas públicas. Desenvolvemos uma plataforma poderosa de indicadores, alinhada com a Agenda 2030 da ONU e seu lema 'não deixe ninguém para trás'. Esta ferramenta é a chave para transferências positivas na educação, avaliando práticas e promovendo uma transformação efetiva, pautadas em evidências científicas.
                 </F.Text>
             </DivInsideRight>
         </DivApresentation>

@@ -7,7 +7,6 @@ import { Footer } from "@/components/footer/footer";
 import { ThemeProvider } from "styled-components";
 import { defaultTheme, highContrastTheme } from "../styles/Themes";
 import VLibras from "vlibras-nextjs";
-import AuthProvider from "@/services/AuthProvider";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -23,22 +22,20 @@ export default function App({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <AuthProvider>
-            <ThemeProvider
-                theme={isHighContrastTheme ? highContrastTheme : defaultTheme}
-            >
-                <GlobalStyles />
-                <html lang="pt-br">
-                    <body className={lexend.className}>
-                        <ThemeContext.Provider value={theme}>
-                            <HeaderMenu toggleTheme={toggleTheme} />
-                            <VLibras forceOnload />
-                            {children}
-                            <Footer />
-                        </ThemeContext.Provider>
-                    </body>
-                </html>
-            </ThemeProvider>
-        </AuthProvider>
+        <ThemeProvider
+            theme={isHighContrastTheme ? highContrastTheme : defaultTheme}
+        >
+            <GlobalStyles />
+            <html lang="pt-br">
+                <body className={lexend.className}>
+                    <ThemeContext.Provider value={theme}>
+                        <HeaderMenu toggleTheme={toggleTheme} />
+                        <VLibras forceOnload />
+                        {children}
+                        <Footer />
+                    </ThemeContext.Provider>
+                </body>
+            </html>
+        </ThemeProvider>
     );
 }

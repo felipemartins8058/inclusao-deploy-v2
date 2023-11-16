@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 interface Linkprops {
-  fontSize: number;
+  fontSize?: number;
 }
 
 export const Header = styled.header`
@@ -52,7 +52,6 @@ export const DivInsideUpLeft = styled.div`
   width: 100%;
   display: flex;
   gap: 1.5rem;
-  background-color: white;
 
   @media (max-width: 768px){
     display: none;

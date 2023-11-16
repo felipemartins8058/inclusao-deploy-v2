@@ -43,6 +43,23 @@ export const CardImageBox = styled.div`
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.16);
 `;
 
+export const InfoCardDiv = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    gap: 0.5rem;
+`
+
+export const AvaliationContent = styled.div`
+    display: flex;
+    gap: 0.2rem;
+`;
+
+export const MessageDiv = styled.div`
+    display: flex;
+    gap: 0.5rem;
+`
+
 export const Content = styled.div`
     padding: 1.5rem;
 `;

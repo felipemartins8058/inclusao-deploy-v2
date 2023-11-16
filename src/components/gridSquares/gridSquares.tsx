@@ -5,26 +5,14 @@ import Theme from "@/utils/useThemeProvider";
 import ImageMulherCadeirante from "../../assets/images/imagecolumn1.svg";
 import ImageCriançaFantasiada from "../../assets/images/imagerow1.svg";
 import ImageCriançaMãosPintadas from "../../assets/images/imagerow3.svg";
-import { useFontStore } from '../header/header'
 
 export function GridSquare() {
-  const { fontSize, sizeIncrement } = useFontStore();
-
-  let calculatedSize = fontSize * sizeIncrement;
-
-  if (calculatedSize < -20) {
-    calculatedSize = -20;
-  }
-
-  if (calculatedSize > 20) {
-    calculatedSize = 20;
-  }
-
+  
   return (
     <DivSquares aria-label="grade de imagens">
       <ColorBlock gridArea="a" color={Theme().color_background_pink} />
       <ColorBlock gridArea="c" color={Theme().color_background_purple}>
-        <F.H2 fontSize={32 + calculatedSize}>
+        <F.H2 >
           Inclusão é respeito, igualdade e oportunidade para todos.
         </F.H2 >
       </ColorBlock>
@@ -45,7 +33,7 @@ export function GridSquare() {
         color={Theme().color_background_green}
       ></ColorBlock>
       <ColorBlock gridArea="b" color={Theme().color_background_green}>
-        <F.H2 fontSize={32 + calculatedSize}>Abraçando a diversidade e promovendo a inclusão.</F.H2>
+        <F.H2 >Abraçando a diversidade e promovendo a inclusão.</F.H2>
       </ColorBlock>
       <ColorBlock gridArea="j" color={Theme().color_background_yellow}>
         <Image

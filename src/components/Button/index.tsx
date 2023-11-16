@@ -2,14 +2,13 @@
 import React, { useContext } from "react";
 import * as S from "./styles";
 import { BtnText } from "@/styles/Fonts";
-import { FaLongArrowAltRight, FaExternalLinkAlt, FaEdit } from "react-icons/fa";
+import { FaLongArrowAltRight, FaExternalLinkAlt, FaEdit, } from "react-icons/fa";
 import { MdModeEditOutline } from "react-icons/md";
 import { BiLogIn } from "react-icons/bi";
 import Link from "next/link";
 import { ThemeContext } from "@/app/App";
 
 import Theme from "@/utils/useThemeProvider";
-import { useFontStore } from "../header/header";
 
 interface ButtonProps {
     link: string;
@@ -54,22 +53,11 @@ export function LinkButton({
     color = Theme().color_background_blue,
     outline = false,
 }: ButtonProps) {
-    const { fontSize, sizeIncrement } = useFontStore();
-
-    let calculatedSize = fontSize * sizeIncrement;
-
-    if (calculatedSize < -6) {
-        calculatedSize = -6;
-    }
-
-    if (calculatedSize > 32) {
-        calculatedSize = 32;
-    }
-
+    
     return (
         <Link href={link}>
             <S.Button outline={outline}>
-                <BtnText fontSize={18 + calculatedSize} color={color}>{label}</BtnText>
+                <BtnText color={color}>{label}</BtnText>
                 {iconVariant(variant, color)}
             </S.Button>
         </Link>
@@ -101,23 +89,34 @@ export function SubmitButton({
 }: SubmitButtonProps) {
     const selectedTheme = useContext(ThemeContext)
     let selectedColor = selectedTheme == 'defaultTheme' ? color : Theme().color_button
-    const { fontSize, sizeIncrement } = useFontStore();
 
-    let calculatedSizeTextButton = fontSize * sizeIncrement;
-
-    if (calculatedSizeTextButton < -6) {
-        calculatedSizeTextButton = -6;
-    }
-
-    if (calculatedSizeTextButton > 16) {
-        calculatedSizeTextButton = 16;
-    }
     return (
-        <S.Button fontSize={16 + calculatedSizeTextButton} type={'submit'} outline={outline}>
+        <S.Button type={'submit'} outline={outline}>
             {!!label ? (
                 <BtnText color={selectedColor}>{label}</BtnText>
             ) : (null)}
             {iconVariant(variant, selectedColor)}
         </S.Button>
+    );
+}
+
+export function ActionButton({
+    label,
+    variant,
+    color = Theme().color_background_blue,
+    outline = false,
+    handleOnClick,
+}: IconButtonProps) {
+    return (
+        <S.ActionButton
+            outline={outline}
+            onClick={() => {
+                handleOnClick();
+            }}
+            aria-label="Botão"
+        >
+            {!!label ? <BtnText color={color}>{label}</BtnText> : null}
+            {iconVariant(variant, color)}
+        </S.ActionButton>
     );
 }
