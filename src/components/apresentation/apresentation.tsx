@@ -21,7 +21,6 @@ export function Apresentation() {
     return (
         <DivApresentation aria-label="seção: o que é esta plataforma?">
             {/* <EditButton handleOnClick={() => { }} label='Editar' /> */}
-            <EditButton handleOnClick={() => { }} label='Editar' />
             <DivInsideLeft>
                 <ColorBlock color={Theme().color_background_yellow}>
                     <Image

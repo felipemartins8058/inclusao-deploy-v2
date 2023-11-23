@@ -43,7 +43,6 @@ export default function Card({ title, text, autor, stars, messages, image, icone
     return (
         <S.Card className="keen-slider__slide" aria-label={ariaLabel}>
             {/* <EditButton handleOnClick={openModal} /> */}
-            <EditButton handleOnClick={openModal} />
             <S.CardImage>
                 <S.CardImageBackground color={color} />
                 <S.CardImageGrid>

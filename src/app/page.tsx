@@ -127,12 +127,12 @@ export default function Home() {
             <Apresentation />
             <S.SeloSection aria-label="seção: o que é o selo inclua?">
                 <S.SeloSectionWrapper>
-                    <EditButton
+                    {/* <EditButton
                         handleOnClick={() => { }}
                         label="Editar"
                         outline={true}
                         color={Theme().color_text}
-                    />
+                    /> */}
                     <div>
                         <Title
                             title="O que é o selo inclua?"
